@@ -63,10 +63,11 @@ def login_user(request):
     
     login(request,user)
     messages.info(request,'login successful')
-
-    return redirect("/home/{username}")
+    
+    return redirect('/home/')
   
   template = loader.get_template('login.html')
+  messages.info(request,'logout successfully')
   context = {}
   return HttpResponse(template.render(context,request))
 
