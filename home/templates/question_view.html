@@ -4,13 +4,130 @@
     <meta charset="UTF-8">
     <title>Question Page</title>
     <style>
+<<<<<<< HEAD
         /* Your CSS styles */
+=======
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .left-column, .right-column {
+            padding: 20px;
+            box-sizing: border-box;
+            min-width: 300px;
+        }
+        .left-column {
+            flex-grow: 1;
+            border-right: 1px solid #ddd;
+        }
+        .right-column {
+            flex-grow: 1;
+            border-left: 1px solid #ddd;
+        }
+        .resizer {
+            width: 10px;
+            cursor: ew-resize;
+            background-color: #ddd;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #176ca5;
+            border-bottom: 2px solid #176ca5;
+            padding-bottom: 10px;
+        }
+        .section p, .section pre {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .code-editor {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #176ca5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-button:hover {
+            background-color: #145b8a;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .left-column, .right-column {
+                width: 100%;
+                border-right: none;
+                border-left: none;
+                border-bottom: 1px solid #ddd;
+            }
+            .right-column {
+                border-bottom: none;
+            }
+        }
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+<<<<<<< HEAD
             <h1>{{ ques_name }}</h1>
+=======
+            <h1>{{ques_name}}</h1>
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
         </div>
         <div class="content">
             <!-- Left Column: Question Details -->
@@ -18,19 +135,34 @@
                 <div class="section">
                     <h2>Description</h2>
                     <p id="description">
+<<<<<<< HEAD
                         {{ desc }}
+=======
+                        <!-- Question description goes here -->
+                        {{desc}}
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
                     </p>
                 </div>
                 <div class="section">
                     <h2>Sample Input</h2>
                     <pre id="sample-input">
+<<<<<<< HEAD
                         {{ samp_in }}
+=======
+                        <!-- Sample input goes here -->
+                        {{samp_in}}
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
                     </pre>
                 </div>
                 <div class="section">
                     <h2>Sample Output</h2>
                     <pre id="sample-output">
+<<<<<<< HEAD
                         {{ samp_out }}
+=======
+                        <!-- Sample output goes here -->
+                       {{samp_out}}
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
                     </pre>
                 </div>
             </div>
@@ -41,6 +173,7 @@
             <!-- Right Column: Code Editor and Submit Button -->
             <div class="right-column">
                 <h2>Code</h2>
+<<<<<<< HEAD
                 <form id="codeForm" method="post" action="{% url 'submit_code' %}">
                     {% csrf_token %}
                     {{ form.non_field_errors }}
@@ -68,12 +201,26 @@
                     </div>
                     <button type="submit" class="submit-button">Run</button>
                 </form>
+=======
+                <textarea class="code-editor" id="code-editor" placeholder="Write your code here..."></textarea>
+                <button class="submit-button" onclick="submitCode()">Submit</button>
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
             </div>
         </div>
     </div>
 
     <script>
+<<<<<<< HEAD
         // Resizer logic (if needed)
+=======
+        function submitCode() {
+            const code = document.getElementById('code-editor').value;
+            // You can handle the submission logic here, such as sending the code to the server for evaluation
+            console.log('Submitted code:', code);
+        }
+
+        // Resizer logic
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
         const resizer = document.querySelector('.resizer');
         const leftColumn = document.querySelector('.left-column');
         const rightColumn = document.querySelector('.right-column');
@@ -98,6 +245,7 @@
             document.removeEventListener('mousemove', resize);
             document.removeEventListener('mouseup', stopResize);
         };
+<<<<<<< HEAD
 
         // AJAX form submission logic
         const form = document.getElementById('codeForm');
@@ -137,3 +285,9 @@
     </script>
 </body>
 </html>
+=======
+    </script>
+</body>
+</html>
+
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3

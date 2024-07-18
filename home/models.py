@@ -24,6 +24,7 @@ class user_question_details(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   problem = models.ForeignKey(question_details, on_delete=models.CASCADE)
   solved = models.BooleanField(default=False)
+<<<<<<< HEAD
 
 class CodeSubmission(models.Model):
     language = models.CharField(max_length=100)
@@ -31,3 +32,5 @@ class CodeSubmission(models.Model):
     input_data = models.TextField(null=True, blank=True)
     output_data = models.TextField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+=======
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3

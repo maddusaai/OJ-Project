@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models import user_questions_solved,question_details,user_question_details
 from django.contrib.auth.models import User
+<<<<<<< HEAD
 from home.forms import CodeSubmissionForm
 from django.conf import settings
 from pathlib import Path
@@ -18,6 +19,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ValidationError
+=======
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
 
 
 def logout_user(request):
@@ -41,11 +44,17 @@ def home_page(request):
 
 @login_required
 
+<<<<<<< HEAD
 def problem_page(request,name):
     problem = get_object_or_404(question_details, name=name)
     form = CodeSubmissionForm()
     context={
         'form':form,
+=======
+def problem_page(request, name):
+    problem = get_object_or_404(question_details, name=name)
+    context={
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
         'ques_name':problem.name,
         'desc':problem.description,
         'samp_in':problem.sample_input,
@@ -67,6 +76,7 @@ def leaderboard(request):
     # Sort by solved_count in descending order
     leaderboard_data = sorted(leaderboard_data, key=lambda x: x['solved_count'], reverse=True)
 
+<<<<<<< HEAD
     return render(request, 'leader_board.html', {'leaderboard_data': leaderboard_data})
 
 
@@ -183,3 +193,6 @@ def compare_files(file1, file2):
     return content1 == content2
 
 
+=======
+    return render(request, 'leader_board.html', {'leaderboard_data': leaderboard_data})
+>>>>>>> 98d50a609e1835aebd0973b96848003db8f2acc3
